@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Default.aspx" title="Home Page"  description="Home Page">
+    
+    <siteMapNode url="Areas/List.aspx" title="Locations | Areas"  description="Areas">
+      <siteMapNode url="Cities/List.aspx" title="City"  description="Cities"/>
+      <siteMapNode url="PostOffices/List.aspx" title="PostOffice"  description="PostOffice"/>
+      <siteMapNode url="Countries/List.aspx" title="Country"  description="Country"/>
+    </siteMapNode>
+    
+    <siteMapNode url="Categories/List.aspx" title="House Categories"  description="Categories">
+      <siteMapNode url="Houses/List.aspx" title="Houses"  description="Houses"/>
+      <siteMapNode url="View_VaccantHouses/List.aspx" title="View_VaccantHouse"  description="View_VaccantHouse"/>
+      <!--<siteMapNode url="test.aspx" title="View_Html"  description="View_VaccantHouse"/>-->
+    </siteMapNode>
+
+    <siteMapNode url="Clients/List.aspx" title="Clients | Requests"  description="Clients">
+      <siteMapNode url="Requests/List.aspx" title="Clients Request"  description="Clients Request"/>
+      
+    </siteMapNode>
+
+    <siteMapNode url="Owners/List.aspx" title="Owners | Rentals"  description="Owners">
+      <siteMapNode url="Agents/List.aspx" title="Rental Agent"  description="Rental Agent"/>
+      <siteMapNode url="Rentals/List.aspx" title="Rentals"  description="Rentals"/>
+    </siteMapNode>
+
+    <siteMapNode url="Receipts/List.aspx" title="Add Receipt"  description="Add Receipt">
+          </siteMapNode>
+    
+  </siteMapNode>
+
+  
+    
+</siteMap>

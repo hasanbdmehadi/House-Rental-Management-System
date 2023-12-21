@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" CodeBehind="Site.master.cs" Inherits="WebAppDynamicProject.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Housing Rental System</title>
+    
+    	
+	<link href="Styles/Site.css" rel="stylesheet" type="text/css" />
+	
+	
+</head>
+
+<body class="template">
+    <!--h1><span class="allcaps">Housing Rental System</span></h1>
+    <div class="back">
+        <a runat="server" href="~/"><img alt="Home Page" runat="server" src="DynamicData/Content/Images/back.gif" />Back to home page</a>
+    </div-->
+
+    <form id="form1" runat="server">
+    
+    <table border="0" width="100%">
+       <tr><td  colspan="2" class="jumbotron" valign="middle"  align="center">
+    
+            <center><asp:Label ID="Label1" runat="server" Text="Housing Rental System" Font-Bold="true" ForeColor="#ffffff" Font-Size="XX-Large"  Height="60px"  Font-Names="Verdana"></asp:Label></center>      
+            
+       </td></tr>
+       <tr>
+        <td class="style1">
+                <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" 
+                    ImageSet="Arrows" ondatabound="TreeView1_DataBound" 
+                    ontreenodedatabound="TreeView1_TreeNodeDataBound"  Width="100%"  >
+                    <ParentNodeStyle Font-Bold="true"/>
+                    <HoverNodeStyle Font-Underline="false"  Font-Bold="true"  
+                     BackColor="AliceBlue"   ForeColor="#5555DD" Width="100%" />
+                    <SelectedNodeStyle Font-Underline="false" ForeColor="#5555DD" 
+                        HorizontalPadding="15px" VerticalPadding="10px" BackColor="#66cdaa" Width="100%"/>
+                    <NodeStyle Font-Names="Tahoma" Font-Size="1.35em" ForeColor="#5555DD" 
+                        HorizontalPadding="15px" NodeSpacing="0px" VerticalPadding="15px"  Font-Bold="true" BackColor="#add8e6"
+                        width="100%"/>
+                </asp:TreeView>
+       </td>
+       
+       <td  class="PageDispaly2" >
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true"/>
+        
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+       
+       </td></tr>
+       <tr><td colspan="2" class="PageDispalyFooter">
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
+          <asp:SiteMapPath ID="SiteMapPath1" runat="server" BorderStyle="None" 
+            BorderWidth="0px" Font-Names="Verdana" Font-Size="1.05em" PathSeparator=" >> ">
+           <CurrentNodeStyle ForeColor="#FFFF00" /> <%--#333333"--%>
+          <NodeStyle Font-Bold="True" ForeColor="#990000" />
+          <PathSeparatorStyle Font-Bold="True" ForeColor="#990000" />
+          <RootNodeStyle Font-Bold="True" ForeColor="#FF8000" />
+          </asp:SiteMapPath>
+       
+       </td></tr>
+       <tr><td colspan="2" class="PageDispalyFooter2">
+            <h3><span class="allcaps"></span></h3>
+       </td></tr>
+    </table>
+    
+    </form>
+</body>
+</html>

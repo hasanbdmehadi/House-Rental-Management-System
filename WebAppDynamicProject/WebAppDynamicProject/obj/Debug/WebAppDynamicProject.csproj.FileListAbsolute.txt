@@ -1,0 +1,10 @@
+D:\ProjectsDNet\vsWeb8\WebAppDynamicProject\WebAppDynamicProject\bin\WebAppDynamicProject.dll
+D:\ProjectsDNet\vsWeb8\WebAppDynamicProject\WebAppDynamicProject\bin\WebAppDynamicProject.pdb
+D:\ProjectsDNet\vsWeb8\WebAppDynamicProject\WebAppDynamicProject\obj\Debug\ResolveAssemblyReference.cache
+D:\ProjectsDNet\vsWeb8\WebAppDynamicProject\WebAppDynamicProject\obj\Debug\WebAppDynamicProject.dll
+D:\ProjectsDNet\vsWeb8\WebAppDynamicProject\WebAppDynamicProject\obj\Debug\WebAppDynamicProject.pdb
+F:\VSProjects\WebAppDynamicProject\WebAppDynamicProject\bin\WebAppDynamicProject.dll
+F:\VSProjects\WebAppDynamicProject\WebAppDynamicProject\bin\WebAppDynamicProject.pdb
+F:\VSProjects\WebAppDynamicProject\WebAppDynamicProject\obj\Debug\ResolveAssemblyReference.cache
+F:\VSProjects\WebAppDynamicProject\WebAppDynamicProject\obj\Debug\WebAppDynamicProject.dll
+F:\VSProjects\WebAppDynamicProject\WebAppDynamicProject\obj\Debug\WebAppDynamicProject.pdb

@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="MonicaDB" Class="DynamicDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=USER-PC\SQLEXPRESS;Initial Catalog=MonicaDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MonicaDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Agents" Member="Agents">
+    <Type Name="Agent">
+      <Column Name="AgentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PostalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="Agent_Rental" Member="Rentals" ThisKey="AgentID" OtherKey="AgentID" Type="Rental" />
+      <Association Name="City_Agent" Member="City" ThisKey="CityID" OtherKey="CityID" Type="City" IsForeignKey="true" />
+      <Association Name="PostOffice_Agent" Member="PostOffice" ThisKey="PostalID" OtherKey="PostalID" Type="PostOffice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Requests" Member="Requests">
+    <Type Name="Request">
+      <Column Name="RequestID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HouseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AreaCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="RequestDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Area_Request" Member="Area" ThisKey="AreaCode" OtherKey="AreaCode" Type="Area" IsForeignKey="true" />
+      <Association Name="House_Request" Member="House" ThisKey="HouseID" OtherKey="HouseID" Type="House" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Areas" Member="Areas">
+    <Type Name="Area">
+      <Column Name="AreaCode" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AreaName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Area_Request" Member="Requests" ThisKey="AreaCode" OtherKey="AreaCode" Type="Request" />
+      <Association Name="Area_House" Member="Houses" ThisKey="AreaCode" OtherKey="AreaCode" Type="House" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Facitlities" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Category_House" Member="Houses" ThisKey="CategoryID" OtherKey="CategoryID" Type="House" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cities" Member="Cities">
+    <Type Name="City">
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="City" Member="City1" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="City_Agent" Member="Agents" ThisKey="CityID" OtherKey="CityID" Type="Agent" />
+      <Association Name="City_Client" Member="Clients" ThisKey="CityID" OtherKey="CityID" Type="Client" />
+      <Association Name="City_Owner" Member="Owners" ThisKey="CityID" OtherKey="CityID" Type="Owner" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Clients" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PostalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NationalID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Client_Rental" Member="Rentals" ThisKey="ClientID" OtherKey="ClientID" Type="Rental" />
+      <Association Name="Client_Receipt" Member="Receipts" ThisKey="ClientID" OtherKey="ClientID" Type="Receipt" />
+      <Association Name="City_Client" Member="City" ThisKey="CityID" OtherKey="CityID" Type="City" IsForeignKey="true" />
+      <Association Name="Country_Client" Member="Country" ThisKey="CountryID" OtherKey="CountryID" Type="Country" IsForeignKey="true" />
+      <Association Name="PostOffice_Client" Member="PostOffice" ThisKey="PostalID" OtherKey="PostalID" Type="PostOffice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Countries" Member="Countries">
+    <Type Name="Country">
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Country" Member="Country1" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="Country_Client" Member="Clients" ThisKey="CountryID" OtherKey="CountryID" Type="Client" />
+      <Association Name="Country_Owner" Member="Owners" ThisKey="CountryID" OtherKey="CountryID" Type="Owner" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Houses" Member="Houses">
+    <Type Name="House">
+      <Column Name="HouseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HouseNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BuildingName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rent" Type="System.Decimal" DbType="SmallMoney" CanBeNull="true" />
+      <Column Name="OwnerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Picture" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="false" />
+      <Association Name="House_Request" Member="Requests" ThisKey="HouseID" OtherKey="HouseID" Type="Request" />
+      <Association Name="House_Rental" Member="Rentals" ThisKey="HouseID" OtherKey="HouseID" Type="Rental" />
+      <Association Name="House_Receipt" Member="Receipts" ThisKey="HouseID" OtherKey="HouseID" Type="Receipt" />
+      <Association Name="Area_House" Member="Area" ThisKey="AreaCode" OtherKey="AreaCode" Type="Area" IsForeignKey="true" />
+      <Association Name="Category_House" Member="Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="Category" IsForeignKey="true" />
+      <Association Name="Owner_House" Member="Owner" ThisKey="OwnerID" OtherKey="OwnerID" Type="Owner" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Owners" Member="Owners">
+    <Type Name="Owner">
+      <Column Name="OwnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PostalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Owner_House" Member="Houses" ThisKey="OwnerID" OtherKey="OwnerID" Type="House" />
+      <Association Name="City_Owner" Member="City" ThisKey="CityID" OtherKey="CityID" Type="City" IsForeignKey="true" />
+      <Association Name="Country_Owner" Member="Country" ThisKey="CountryID" OtherKey="CountryID" Type="Country" IsForeignKey="true" />
+      <Association Name="PostOffice_Owner" Member="PostOffice" ThisKey="PostalID" OtherKey="PostalID" Type="PostOffice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PostOffices" Member="PostOffices">
+    <Type Name="PostOffice">
+      <Column Name="PostalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PostOffice" Member="PostOffice1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PostOffice_Agent" Member="Agents" ThisKey="PostalID" OtherKey="PostalID" Type="Agent" />
+      <Association Name="PostOffice_Client" Member="Clients" ThisKey="PostalID" OtherKey="PostalID" Type="Client" />
+      <Association Name="PostOffice_Owner" Member="Owners" ThisKey="PostalID" OtherKey="PostalID" Type="Owner" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rentals" Member="Rentals">
+    <Type Name="Rental">
+      <Column Name="RentalCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HouseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MonthlyRent" Type="System.Decimal" DbType="SmallMoney" CanBeNull="true" />
+      <Column Name="AdvanceAmount" Type="System.Decimal" DbType="SmallMoney" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="AgentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Agent_Rental" Member="Agent" ThisKey="AgentID" OtherKey="AgentID" Type="Agent" IsForeignKey="true" />
+      <Association Name="Client_Rental" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
+      <Association Name="House_Rental" Member="House" ThisKey="HouseID" OtherKey="HouseID" Type="House" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_VaccantHouse" Member="View_VaccantHouses">
+    <Type Name="View_VaccantHouse">
+      <Column Name="HouseNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Facitlities" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Receipts" Member="Receipts">
+    <Type Name="Receipt">
+      <Column Name="ReceiptID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReceivedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
+      <Column Name="MonthID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HouseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Receipt" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
+      <Association Name="House_Receipt" Member="House" ThisKey="HouseID" OtherKey="HouseID" Type="House" IsForeignKey="true" />
+      <Association Name="Month_Receipt" Member="Month" ThisKey="MonthID" OtherKey="MonthID" Type="Month" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Months" Member="Months">
+    <Type Name="Month">
+      <Column Name="MonthID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MonthName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Month_Receipt" Member="Receipts" ThisKey="MonthID" OtherKey="MonthID" Type="Receipt" />
+    </Type>
+  </Table>
+  <Function Name="dbo.VaccantList" Method="VaccantList">
+    <Parameter Name="Area" Parameter="area" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="VaccantListResult">
+      <Column Name="HouseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HouseNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Facitlities" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Rent" Type="System.Decimal" DbType="SmallMoney" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

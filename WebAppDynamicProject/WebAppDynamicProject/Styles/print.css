@@ -1,0 +1,24 @@
+﻿body
+{text-align: center;
+}
+
+.Printable
+{
+	/*display:none;*/
+	text-decoration:none;
+	text-align: center;
+	
+}
+
+.nonPrintable
+{
+	display:none;
+	
+}
+
+.customclass
+{
+	text-align: center;
+	
+}
+

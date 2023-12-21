@@ -1,0 +1,406 @@
+﻿/* Cascading Stylesheet for Common Elements */
+
+/* Begin: General */
+
+body   
+{
+    background:gray; /* grey #b6b7bc;#4b6c7a*/ 
+    font-size: 0.70em;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: blue /*#696969;*/
+}
+
+body.template
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 75%;
+    color: #666666;
+    
+}
+body.template h1
+{
+    padding-bottom: 12px;
+    border-bottom: 1px dotted #bbbbbb;
+    font-size: 2.2em;
+    font-family: Trebuchet MS, Arial, sans-serif;
+    color: #888888;
+}
+span.allcaps
+{
+    font-variant: small-caps;
+    color:lime;
+    
+    
+}
+body.template h2
+{
+    margin-bottom: 10px;
+    font-family: Trebuchet MS, Arial, sans-serif;
+    font-size: 1.65em;
+    color: #888888;
+}
+div.back
+{
+    margin-bottom: -20px;
+    position: relative;
+    top: -28px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 1.35em;
+}
+div.back img
+{
+    position: relative;
+    margin-top: 0em;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: none;
+    background-color: #ffffff;
+}
+div.back a:link,
+div.back a:visited
+{
+    color: #839ce7;
+    text-decoration: none;
+    background-color: #ffffff;
+    padding-right: 8px;
+    top: -.2em;
+    left: .25em;
+}
+div.back a:hover
+{
+    color: #000099;
+    text-decoration: underline !important;
+}
+/* End: General */
+
+/* Begin: Tables */
+body.template table.listview, table.gridview, table.detailstable 
+{
+    border: 1px solid #dbddff; 
+    border-bottom: 3px solid #dbddff;
+    border-collapse: collapse;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #666666;
+    /*font-size: 95%; 
+    font-family: Tahoma, Arial, Sans-Serif;*/
+    font-size: 1.05em;
+}
+
+body.template table.listview th, table.gridview th, table.detailstable th,
+body.template table.listview td, table.gridview td, table.detailstable td 
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 1.1em;
+}
+
+body.template table.listview th, table.gridview th, table.detailstable th
+{
+    background-position: 1px 1px;
+    background-repeat: repeat-x;
+    background-color: #ffffff;
+    font-size: 100%;
+    text-align: left;
+    line-height: 1.3em;
+    color: #666666;
+    border-left: 1px solid #dbddff;
+    border-right: 1px solid #dbddff;
+    border-bottom: 1px solid #dbddff;
+}
+
+body.template table.listview td, table.gridview td, table.detailstable td
+{
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px dotted #dadada;
+}
+
+body.template td.bold {
+    font-weight:bold;
+}
+
+body.template th a:link,
+body.template th a:visited,
+body.template th a:hover
+{
+    color: #666666;
+    text-decoration: none;
+}
+
+body.template td a:link,
+body.template td a:visited
+{
+    color: #718ABE;
+    text-decoration: none;
+    padding-right: 6px;
+}
+body.template td a:hover
+{
+    color: #000099;
+    text-decoration: underline !important;
+}
+table.gridview
+{
+    width: 100%;
+    
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 1.05em;
+}
+table.gridview table td
+{
+    padding-left: .5em;
+    padding-right: .5em;
+   
+}
+
+table.gridview th {
+    background-image:url('../DynamicData/Content/Images/header_back.gif');
+}
+
+table.listview
+{
+    width: 100%;
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 1.05em;
+}
+table.listview td a:link, 
+table.listview td a:visited
+{
+    font-size: 100%;
+}
+table.listview table td
+{
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+table.listview th {
+    background-image:url('../DynamicData/Content/Images/header_back.gif');
+}
+
+table.detailstable td
+{
+    border-left: 1px solid #dbddff;
+    border-right: 1px solid #dbddff;
+    vertical-align:top;
+    width:400px;
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 1.05em;
+}
+
+.detailstable12
+{
+    border-left: 1px solid #dbddff;
+    border-right: 1px solid #dbddff;
+    vertical-align:top;
+    width:400px;
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 1.05em;
+    text-decoration:none;
+}
+
+table.detailstable th
+{
+    background: #FCFDFE;
+    vertical-align:top;
+}
+
+td.nowrap 
+{
+    white-space: nowrap;
+}
+/* The following modifies the details table */
+body.template tr
+{
+    background: #FCFDFE;
+}
+/* The following modifies the controls in the list table footer */
+tr.footer td
+{
+    background: #dbddff;
+    height: 1.5em;
+}
+
+/* The following modifies the selected row in the list table */
+tr.selected td
+{
+    background: #fdffb8;
+}
+
+/* End: Tables */
+
+/* The following modifies the page number control which exists under the main table */
+div.pager
+{
+    padding: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+span.results1
+{
+    float:left;
+}
+span.results2
+{
+    float:right;
+}
+/* The following modifies the results per page control which exists under the main table */
+div.results
+{
+    display: inline;
+    position: relative;
+    padding: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: -1.75em;
+    float:right;
+}
+/* Set's the appearance of the drop down control*/
+.droplist
+{
+    padding: 10px;
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 1.05em;
+    color: #666666;
+    width:300px;
+}
+
+.droplist5
+{
+    padding: 10px;
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 1.05em;
+    color: #666666;
+    width:250px;
+}
+/* Bottom hyperlink design*/
+div.bottomhyperlink
+{
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 100%;
+    margin-top: -3px;
+}
+div.bottomhyperlink a:link,
+div.bottomhyperlink a:visited
+{
+    color: #839ce7;
+    text-decoration: none;
+
+    font-family: Tahoma, Arial, Sans-Serif;
+
+    font-size: 1.05em;
+
+    margin-top: -3px;
+}
+div.bottomhyperlink a:hover
+{
+
+    color: black; /* #000099; */
+
+    text-decoration: underline !important;
+
+    font-family: Tahoma, Arial, Sans-Serif;
+
+    /*font-size: 100%;*/
+    font-size: 1.05em;
+}
+div.bottomhyperlink img
+{
+    position: relative;
+    top: 0em;
+    padding-right: .4em;
+    border: none;
+}
+
+.jumbotron {
+      background-color:#8470FF; /*#f4511e; #4b6c7a;*/
+      color:White; /* #fff*/
+      padding: 20px;
+      text-align:center;
+      font-weight:bold;
+      font-size:xx-large;
+      height:60px;
+      border:0px;
+  }
+  
+  .style1
+  {
+        width: 20%;
+        background-color:  #add8e6; vertical-align:top;  direction: ltr;    /* #4682b4,#3a4f63;*/ 
+        
+  }
+  
+  .PageDispaly2
+{
+	width: 100%; 
+	background-color:  White;
+	padding-left:15px; 
+	vertical-align:top;													 
+	
+}
+
+.PageDispalyFooter
+{
+	width: 100%; 
+	background-color:  #8470FF;
+	padding-left:15px; 
+	vertical-align:middle;	
+	/*width:30px;	*/
+	height:50px;
+	border:0;											 
+	
+}
+
+.PageDispalyFooter2
+{
+	width: 100%; 
+	background-color:  white;
+	padding-left:15px; 
+	vertical-align:middle;	
+	/*width:30px;*/
+	color:red;	
+	height:50px;											 
+	
+}
+
+/*	body{background-color:black;}
+
+	.jumbotron {
+      background-color: #f4511e;
+      color: #fff;
+      padding: 0px 0px;
+      font-family: Montserrat, sans-serif;
+      /*height:100px;*/
+      /*text-decoration:bold;
+  }*/
+  
+table.gridview9 
+{
+    border: 1px solid #dbddff; 
+    border-bottom: 3px solid #dbddff;
+    border-collapse: collapse;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #666666;
+    /*font-size: 95%; 
+    font-family: Tahoma, Arial, Sans-Serif;*/
+    font-size: 1.85em;
+    width:90%;
+    margin-left:50px;
+}
+
+
+.searchl
+{
+	border: 1px solid #dbddff;
+	font-family: Tahoma, Arial, sans-serif;
+	color:black;
+}
+
